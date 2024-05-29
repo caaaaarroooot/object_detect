@@ -19,33 +19,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(create: (context) => MyAppState(),
-      child: MaterialApp(
-        title: 'Shrine',
-        initialRoute: '/login',
-        routes: {
-          '/login': (BuildContext context) => LoginPage(),
-          '/': (BuildContext context) => HomePage(),
-
-          '/post': (BuildContext context) => PostPage(),
-          '/postDoc': (BuildContext context) => PostDocPage(),
-
-          '/dormitory': (BuildContext context) => DormitoryPage(),
-          '/dormitoryDoc': (BuildContext context) => DormitoryDoc(),
-
-          '/office': (BuildContext context) => OfficePage(),
-          '/officeDoc': (BuildContext context) => OfficeDoc(),
-
-          '/school': (BuildContext context) => SchoolPage(),
-          '/schoolDoc': (BuildContext context) => SchoolDoc(),
-
-          '/calender': (BuildContext context) => CalenderPage(),
-
-
-        },
-        theme: ThemeData.light(useMaterial3: true),
-      )
-    );
+    return ChangeNotifierProvider(
+        create: (context) => MyAppState(),
+        child: MaterialApp(
+          title: 'Shrine',
+          initialRoute: '/',
+          routes: {
+            '/login': (BuildContext context) => LoginPage(),
+            '/': (BuildContext context) => HomePage(),
+            '/post': (BuildContext context) => PostPage(),
+            '/postDoc': (BuildContext context) => PostDocPage(),
+            '/dormitory': (BuildContext context) => DormitoryPage(),
+            '/dormitoryDoc': (BuildContext context) => DormitoryDoc(),
+            '/office': (BuildContext context) => OfficePage(),
+            '/officeDoc': (BuildContext context) => OfficeDoc(),
+            '/school': (BuildContext context) => SchoolPage(),
+            '/schoolDoc': (BuildContext context) => SchoolDoc(),
+            '/calender': (BuildContext context) => CalenderPage(),
+          },
+          theme: ThemeData.light(useMaterial3: true),
+        ));
   }
 }
 
@@ -55,23 +48,21 @@ class MyAppState extends ChangeNotifier {
   var school = [];
   var post = [];
 
-  void addDor(String text)
-  {
+  void addDor(String text) {
     dor.add(text);
   }
-  void addOffice(String text)
-  {
+
+  void addOffice(String text) {
     office.add(text);
   }
-  void addSchool(String text)
-  {
+
+  void addSchool(String text) {
     school.add(text);
   }
-  void addPost(String text)
-  {
+
+  void addPost(String text) {
     post.add(text);
   }
-
 }
 //현재 google ml_kit의 text recognize로 사진 인식-> 트러블 슈팅이 굉장히 많이 일어남.
 //다음 어떤 pub의 dependency를 사용??
